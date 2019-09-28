@@ -7,24 +7,37 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jmespath/0.15.0/jmespath.min.js"></script>
 <script src="json2plot.js"></script>
 <style>
-#plot {  float:left; height:50%; width:60%;} 
+
+table, th, td {
+  border: 0px solid black;
+}
 </style>
 </head>
+
+
+
+
 <body>
 <h1>Json2Plot</h1>
 
 This is an interactive example using json2plot.js that allows to easily create plots from json data by combining <a href="http://jmespath.org/">JMESPath</a> queries and <a href="https://plot.ly">Plotly</a>. Source code  on <a href="https://github.com/martinResearch/Json2Plot">Github</a>
 This is a pure client-side page, no data is send on any server.
 <p>
- <form action="#" name="myform" >
- 
+
+ <table  >
+   <col width="800">
+   <col width="1000">
+
+  <tr>
+    <td valign="top">
+	<form action="#" name="myform" id="form">
 	Json data: <br>
-	<textarea name="jsondata" rows="10" cols="150">[{"year":2010,"price":50},{"year": 2011,"price":58},{"year": 2012,"price":63},{"year": 2013,"price":61}]  
+	<textarea name="jsondata" rows="10" cols="80">[{"year":2010,"price":50},{"year": 2011,"price":58},{"year": 2012,"price":63},{"year": 2013,"price":61}]  
 	</textarea>
 	<br>
 	Plotly with JMESPaths: 
 	<br>
-	<textarea name="plotform" rows="10" cols="150">
+	<textarea name="plotform" rows="10" cols="80">
 {
 "data":[{
 	"x": "$[*].year",
@@ -35,15 +48,25 @@ This is a pure client-side page, no data is send on any server.
 }
 	</textarea>
 	<br>  
-	<input name="Submit"  type="submit"  value="Update" onclick="json2plotRun(jsondata.value,plotform.value);return false"/>  
+	<input id="submit" name="Submit"  type="submit"  value="Update" onclick="json2plotRun(jsondata.value,plotform.value,document.getElementById('log'),document.getElementById('plot'));return false"/>  
+	</form>
+	</td>
+    <td valign="top">
+	<div id="log">
+	</div> 
+	<div id="plot" >
+	</div>
+	</td> 
+</table> 
+ 
 
-</form> 
 
-<div id="log">
-</div> 
-
-<div id="plot" >
-</div>
 <p>
+
+
+
+
+
+
 </body>
 </html>
