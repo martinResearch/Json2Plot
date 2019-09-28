@@ -1,4 +1,4 @@
-function plotly_jmespath_parse(jsonstr,plotstr){
+function json2plotRun(jsonstr,plotstr){
 	log_html= document.getElementById('log')
 	log_html.innerHTML=""
 	try{
@@ -40,7 +40,6 @@ function plotly_jmespath_parse(jsonstr,plotstr){
 			}
 		});
 	}
-
 	iter_object(data,plots)
 	console.log(plots)
 	Plotly.newPlot('plot', plots["data"],plots["layout"]);		
