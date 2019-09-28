@@ -17,7 +17,7 @@ By combining this two tool and some javadscipt we are able to create a page that
 The figure is described using the Ploly.js json format but the fields containing the data we want to plot are not array of numbers but strings starting with the $ character that correspond to JMESPAth queries in the data. 
 Our javascript code walks through the json describing the figure and replace each string starting by $ by the result of the jmespah query on the data.
 
-You can try the interactive example [here](http://martinresearch.github.io/json2plot/)
+You can try the interactive example [here](https://martinresearch.github.io/Json2Plot/)
 
 For example
 
