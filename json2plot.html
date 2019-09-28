@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Json2Plot</title>
+<meta charset="utf-8"/>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="jmespath.js"></script>
+<script src="json2plot.js"></script>
+<style>
+#plot {  float:left; height:50%; width:60%;} 
+</style>
+</head>
+<body>
+ <form name="myform" >
+ 
+	Json data: <br>
+	<textarea name="jsondata" rows="10" cols="150">[{"year":2010,"price":50},{"year": 2011,"price":58},{"year": 2012,"price":63},{"year": 2013,"price":61}]  
+	</textarea>
+	<br>
+	Plotly with JMESPaths: 
+	<br>
+	<textarea name="plotform" rows="10" cols="150">
+{
+"data":[{
+	"x": "$[*].year",
+	"y": "$[*].price",
+	"mode": "lines+markers"
+	}],
+"layout":{}
+}
+	</textarea>
+	<br>  
+	<input name="Submit"  type="submit"  value="Update" onclick="json2plot(jsondata.value,plotform.value);return false"/>  
+
+</form> 
+
+<div id="log">
+</div> 
+
+<div id="plot" >
+</div>
+
+</body>
+</html>
